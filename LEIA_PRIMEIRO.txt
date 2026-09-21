@@ -1,28 +1,36 @@
-NOBRE SERVIÇOS ANDROID — V4.8 BUILD CORRIGIDO
+NOBRE SERVIÇOS ANDROID — V4.9 PROJETO COMPLETO
 
-ERRO DA FOTO:
-Task with name 'assembleDebug' not found in root project 'NobreServicos'.
+ESTE PACOTE JÁ ESTÁ PRONTO PARA O GITHUB.
 
-CAUSA:
-A V4.7 tinha estas linhas no build.gradle:
-tasks.named('assembleDebug').configure { ... }
+FAÇA SOMENTE:
+1. Extraia o ZIP.
+2. Abra a pasta extraída.
+3. Selecione TODO o conteúdo de dentro dela.
+4. Arraste tudo para o repositório GitHub.
+5. Clique em Commit changes.
 
-Elas tentavam acessar assembleDebug antes do plugin Android terminar
-de criar a tarefa.
+NÃO EDITE build.gradle.
+NÃO EDITE main.yml.
+NÃO PRECISA criar workflow manualmente.
 
-CORREÇÃO V4.8:
-- removi totalmente esse bloco;
-- o plugin Android cria assembleDebug normalmente;
-- o workflow usa:
-  gradle assembleDebug --stacktrace --no-daemon
-- o APK esperado fica em:
-  build/outputs/apk/debug/app-debug.apk
+Ao fazer o commit na branch main, o GitHub Actions inicia AUTOMATICAMENTE:
+NOBRE SERVICOS V4.9 - GERAR APK
 
-TODO O APP DA V4.7/V4.5 FOI MANTIDO.
+Quando terminar verde, baixe em Artifacts:
+NOBRE-SERVICOS-V4-9
 
-NO GITHUB:
-Substitua pelo menos estes 2 arquivos:
-1. build.gradle
-2. .github/workflows/main.yml
+ESTRUTURA CORRETA NA RAIZ:
+build.gradle
+settings.gradle
+gradle.properties
+src/
+.github/
 
-Ou, para evitar erro, envie todo o conteúdo da V4.8 por cima do repositório.
+O app mantém:
+- NOBRE SERVIÇOS;
+- barra inferior maior;
+- mapas offline;
+- PDF direto no celular;
+- sincronização rápida;
+- vários celulares;
+- Produção e Evolução fora do Android.

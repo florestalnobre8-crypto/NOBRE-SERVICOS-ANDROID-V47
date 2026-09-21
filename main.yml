@@ -1,7 +1,10 @@
-name: NOBRE SERVICOS V4.8 - GERAR APK
+name: NOBRE SERVICOS V4.9 - GERAR APK
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
@@ -39,10 +42,10 @@ jobs:
           test -f build/outputs/apk/debug/app-debug.apk
 
       - name: Renomear APK
-        run: cp build/outputs/apk/debug/app-debug.apk NOBRE_SERVICOS_V4_8.apk
+        run: cp build/outputs/apk/debug/app-debug.apk NOBRE_SERVICOS_V4_9.apk
 
       - name: Salvar APK
         uses: actions/upload-artifact@v4
         with:
-          name: NOBRE-SERVICOS-V4-8
-          path: NOBRE_SERVICOS_V4_8.apk
+          name: NOBRE-SERVICOS-V4-9
+          path: NOBRE_SERVICOS_V4_9.apk

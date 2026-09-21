@@ -1,0 +1,28 @@
+NOBRE SERVIÇOS ANDROID — V4.8 BUILD CORRIGIDO
+
+ERRO DA FOTO:
+Task with name 'assembleDebug' not found in root project 'NobreServicos'.
+
+CAUSA:
+A V4.7 tinha estas linhas no build.gradle:
+tasks.named('assembleDebug').configure { ... }
+
+Elas tentavam acessar assembleDebug antes do plugin Android terminar
+de criar a tarefa.
+
+CORREÇÃO V4.8:
+- removi totalmente esse bloco;
+- o plugin Android cria assembleDebug normalmente;
+- o workflow usa:
+  gradle assembleDebug --stacktrace --no-daemon
+- o APK esperado fica em:
+  build/outputs/apk/debug/app-debug.apk
+
+TODO O APP DA V4.7/V4.5 FOI MANTIDO.
+
+NO GITHUB:
+Substitua pelo menos estes 2 arquivos:
+1. build.gradle
+2. .github/workflows/main.yml
+
+Ou, para evitar erro, envie todo o conteúdo da V4.8 por cima do repositório.
